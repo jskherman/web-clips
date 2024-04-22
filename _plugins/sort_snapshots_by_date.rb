@@ -14,7 +14,7 @@ Jekyll::Hooks.register :site, :after_init do |_site, _payload|
     filename = File.basename(filepath)
 
     # Extract date from filename
-    date_match = filename.match(/[\-_](\d{4}-\d{2}-\d{2})T(\d{2})_(\d{2})_(\d{2}\.\d{3})Z/)
+    date_match = filename.match(/\((?![^(]*\()(?=(\d{4}-\d{2}-\d{2})T(\d{2})_(\d{2})_(\d{2}\.\d{3})Z)/)
     date = date_match ? date_match[1] : "0000-00-00"
 
     # Convert the date string to an actual Date object for sorting, if date is not nil
