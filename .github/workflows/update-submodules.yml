@@ -20,7 +20,7 @@ jobs:
         
     - name: Update Submodules
       run: |
-          git submodule update --remote --merge --recursive
+          git submodule update --remote --merge --recursive --allow-unrelated-histories
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
