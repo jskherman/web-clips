@@ -20,7 +20,7 @@ jobs:
         
     - name: Update Submodules
       run: |
-          git submodule foreach git pull --no-rebase origin main
+          git submodule foreach git pull --no-rebase --allow-unrelated-histories origin main
         
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
