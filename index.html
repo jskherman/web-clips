@@ -8,12 +8,14 @@ layout: default
 {% assign sorted_snapshot_dates = site.data.sorted_snapshot_dates %}
 <div class="mx-auto max-w-4xl mt-10">
   <p class="text-gray-600 text-base mt-4">
-    Welcome to my perma-web store, a dedicated space for preserving source
-    material against the risk of online disappearance. Each page within our
-    archive includes a link back to the original source. We encourage visitors
-    to use these original links whenever possible, ensuring the original content
+    Welcome to my archive of webpages, a dedicated space for preserving source
+    material against the risk of online disappearance. Each page within the
+    archive includes a link back to the original source. It is highly encouraged that you
+    use these original links whenever possible, ensuring the original content
     creators receive their due recognition and traffic, provided the original
-    material remains accessible online.
+    material remains accessible online. Even better, if you can install these
+    <a href="https://chromewebstore.google.com/detail/wayback-machine/fpnmgdkabkmnadcjpehmlllkndpkmiak">Internet Archive's Wayback Machine web extension</a>
+    and help archive pages you visit!
   </p>
   <p class="text-gray-600 text-base mt-4">
     My motivation for capturing these snapshots is rooted in a simple yet
@@ -21,20 +23,20 @@ layout: default
     It's easy for online articles, essays, and stories to disappear without a
     trace, taking with them knowledge and perspectives that deserve to be
     preserved. This project is implemented with SingleFile, Jekyll and Vercel,
-    as I've shared in
+    as shared in
     <a
       href="https://vertis.io/2024/01/26/how-singlefile-transformed-my-obsidian-workflow/"
       class="text-blue-500 hover:text-blue-700"
-      >this piece</a
+      >Luke Chadwick's post on this</a
     >.
   </p>
   <p class="text-gray-600 text-base mt-4">
-    The source for this website can be found on
+    This source for this website is forked from the original project and can be found on
     <a
       href="https://github.com/vertis/permanent-web-snapshots"
       class="text-blue-500 hover:text-blue-700"
-      >GitHub</a
-    >. It's worth noting that you shouldn't fork, but rather create an
+      >GitHub</a>.
+    It's worth noting that you shouldn't fork the original project, but rather create an
     unconnected repo if you want to reuse this.
   </p>
   {% for x in sorted_snapshot_dates %}
