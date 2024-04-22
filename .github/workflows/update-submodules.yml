@@ -16,20 +16,30 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
       with:
+        token: ${{ secrets.GH_PATOKEN }}
         submodules: recursive
         
     - name: Update Submodules
       run: |
-          git submodule update --remote --merge --recursive --allow-unrelated-histories
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6
-      with:
-        token: ${{ secrets.GH_PATOKEN }}
-        commit-message: Update submodules, update snapshots
-        committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-        author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
-        title: 'Update submodules'
-        body: Update submodules to their latest versions as well as add new snapshots
-        branch: update-submodules
-        delete-branch: true
-        assignees: jskherman
+          git pull --recurse-submodules
+          git submodule update --remote --merge --recursive
+
+    - name: Commmit update
+      run: |
+          git config --global user.name "GitHub Actions bot"
+          git config --global user.email "bot@noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PATOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
+
+    # - name: Create Pull Request
+    #   uses: peter-evans/create-pull-request@v6
+    #   with:
+    #     token: ${{ secrets.GH_PATOKEN }}
+    #     commit-message: Update submodules, update snapshots
+    #     committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+    #     author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+    #     title: 'Update submodules'
+    #     body: Update submodules to their latest versions as well as add new snapshots
+    #     branch: update-submodules
+    #     delete-branch: true
+    #     assignees: jskherman
