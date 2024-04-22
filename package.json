@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build-css": "postcss _src/styles.css -o assets/css/styles-compiled.css",
-    "build": "bun postcss && bundle install && bundle exec jekyll build"
+    "prepare": "bun build-css && bundle install && bundle exec jekyll build"
   },
   "devDependencies": {
     "@types/bun": "latest",
