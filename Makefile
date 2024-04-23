@@ -11,4 +11,4 @@ build:
 	make setup
 	make html
 	echo "@@@@@ Building site... @@@@@"
-	bundle exec jekyll build
+	bundle exec jekyll build --trace

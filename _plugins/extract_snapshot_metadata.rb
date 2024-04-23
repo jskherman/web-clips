@@ -33,7 +33,7 @@ Jekyll::Hooks.register :site, :after_init do |_site, _payload|
 
     # Parse HTML to extract title
     content = File.read(filepath)
-    doc = Nokogiri::HTML(content)
+    doc = Nokogiri::HTML(content, nil, "UTF-8")
     # title = doc.at('title') ? doc.at('title').text : 'No Title'
     # title = doc.at('meta[property="og:title"]') ? doc.at('meta[property="og:title"]')['content'] : 'No Title'
     title = if doc.at('title')
