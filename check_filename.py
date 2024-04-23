@@ -15,4 +15,4 @@ if len(html_files_with_non_ascii) > 0:
         print(f)
     print("\n\nPlease rename them to ASCII characters before proceeding.")
 else:
-    print("All HTML files have proper ASCII filenames.")
+    print("OK: All HTML files have proper ASCII filenames.\n")
