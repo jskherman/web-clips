@@ -1,7 +1,6 @@
 require 'nokogiri'
 require 'yaml'
 require 'uri'
-require 'cgi'
 require 'open-uri'
 require 'net/http'
 
@@ -38,11 +37,11 @@ Jekyll::Hooks.register :site, :after_init do |_site, _payload|
     # title = doc.at('title') ? doc.at('title').text : 'No Title'
     # title = doc.at('meta[property="og:title"]') ? doc.at('meta[property="og:title"]')['content'] : 'No Title'
     title = if doc.at('title')
-      CGI.escapeHTML(doc.at('title').text)
+      doc.at('title').text
     elsif doc.at('meta[property="og:title"]')
-      CGI.escapeHTML(doc.at('meta[property="og:title"]')['content'])
+      doc.at('meta[property="og:title"]')['content']
     elsif doc.at('html').children[0].text.strip.match(/Title: ([^\n]*)/)
-      CGI.escapeHTML(doc.at('html').children[0].text.strip.match(/Title: ([^\n]*)/)[1])
+      doc.at('html').children[0].text.strip.match(/Title: ([^\n]*)/)[1]
     else
       'No Title'
     end
