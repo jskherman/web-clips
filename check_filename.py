@@ -8,9 +8,11 @@ html_files_with_non_ascii = [
     if f.endswith(".html") and any(ord(c) > 127 for c in f)
 ]
 
-if html_files_with_non_ascii:
+if len(html_files_with_non_ascii) > 0:
     print("@@@@@@@@@@ WARNING!!! @@@@@@@@@@")
-    print("These HTML files have non-ASCII characters in their filenames:")
-    print(html_files_with_non_ascii)
+    print("These HTML files have non-ASCII characters in their filenames:\n")
+    for f in html_files_with_non_ascii:
+        print(f)
+    print("\n\nPlease rename them to ASCII characters before proceeding.")
 else:
     print("All HTML files have proper ASCII filenames.")
