@@ -27,7 +27,7 @@ layout: default
     powerful need: to keep the ever-changing web content available for my notes.
     It's easy for online articles, essays, and stories to disappear without a
     trace, taking with them knowledge and perspectives that deserve to be
-    preserved. This project is implemented without 
+    preserved. This project is implemented with the help of  
     <a
       href="https://chromewebstore.google.com/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle"
       class="text-blue-500 hover:text-blue-700"
@@ -36,17 +36,23 @@ layout: default
     <a
       href="https://vertis.io/2024/01/26/how-singlefile-transformed-my-obsidian-workflow/"
       class="text-blue-500 hover:text-blue-700"
-      >Luke Chadwick's post on this</a
+      >Luke Chadwick's post</a
     >.
   </p>
   <p class="text-gray-600 text-base mt-4">
-    This source for this website is forked from the original project and can be found on
+    The source for this website is forked from the 
     <a
       href="https://github.com/vertis/permanent-web-snapshots"
       class="text-blue-500 hover:text-blue-700"
+      >original project</a> 
+    and can be found on
+    <a
+      href="https://github.com/jskherman/web-clips"
+      class="text-blue-500 hover:text-blue-700"
       >GitHub</a>.
-    It's worth noting that you shouldn't fork the original project, but rather create an
-    unconnected repo if you want to reuse this.
+    It's worth noting that you shouldn't fork the original project, but rather copy and create an
+    unconnected repository if you want to reuse this. This is because of the large size
+    of the SingleFile HTML files that causes Git to take a while to clone the repository.
   </p>
   {% for x in sorted_snapshot_dates %}
 
