@@ -34,7 +34,18 @@ Jekyll::Hooks.register :site, :after_init do |_site, _payload|
     # Parse HTML to extract title
     content = File.read(filepath)
     doc = Nokogiri::HTML(content)
-    title = doc.at('title') ? doc.at('title').text : 'No Title'
+    # title = doc.at('title') ? doc.at('title').text : 'No Title'
+    # title = doc.at('meta[property="og:title"]') ? doc.at('meta[property="og:title"]')['content'] : 'No Title'
+    title = if doc.at('title')
+      doc.at('title').text
+    elsif doc.at('meta[property="og:title"]')
+      doc.at('meta[property="og:title"]')['content']
+    elsif doc.at('html').children[0].text.strip.match(/Title: ([^\n]*)/)
+      doc.at('html').children[0].text.strip.match(/Title: ([^\n]*)/)[1]
+    else
+      'No Title'
+    end
+
 
     # source_link = doc.at('.infobar-link-icon') ? doc.at('.infobar-link-icon')['href'] : ''
     # if source_link.empty?
