@@ -54,10 +54,29 @@ layout: default
     unconnected repository if you want to reuse this. This is because of the large size
     of the SingleFile HTML files that causes Git to take a while to clone the repository.
   </p>
+  <p class="text-gray-600 text-base mt-4">
+    Some examples of links that may be of interest are the links that point to
+    <a
+      href="#2024-05-18"
+      class="text-blue-500 hover:text-blue-700"
+      >
+    webpages of AI papers</a> that Ilya Sutskever, former OpenAI co-founder and Chief Scientist,
+    recommended to John Carmack. Papers which are only PDFs can be found
+    <a
+      href="https://drive.google.com/file/d/1Hl8XBD4f1e8AWGNLXV5k1KPTYmWltiqz/view?usp=sharing"
+      class="text-blue-500 hover:text-blue-700"
+      >here</a>. 
+    You could also start from the 
+    <a
+      href="#2024-04-22"
+      class="text-blue-500 hover:text-blue-700"
+      >bottom of this page</a>
+    where the earliest links are.
+  </p>
   {% for x in sorted_snapshot_dates %}
 
   <div class="mt-8">
-    <h2 class="text-xl font-bold">{{ x[0] }}</h2>
+    <h2 class="text-xl font-bold" id="{{ x[0] }}">{{ x[0] }}</h2>
     <ul class="list-disc pl-5 mt-4">
       {% for filename in x[1] %} {% assign p = site.static_files | where:
       "path", filename | first %} {% assign title =
